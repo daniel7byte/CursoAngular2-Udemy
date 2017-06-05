@@ -1,0 +1,37 @@
+<h1>Hola Mundo</h1>
+
+<hr>
+
+<div class="row">
+  <div class="col-md-6">
+    <h3>*ngIf</h3>
+    <hr>
+
+    <button type="button" class="btn btn-outline-primary btn-block"
+    (click)="mostrar = !mostrar">
+      Mostrar y Ocultar
+    </button>
+
+    <hr>
+
+    <div class="card card-inverse card-primary mb-3 text-center" *ngIf="mostrar">
+      <div class="card-block">
+        <blockquote class="card-blockquote">
+          <p>{{texto}}</p>
+          <footer> Autor: <cite title="Source Title">{{autor}}</cite></footer>
+        </blockquote>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-md-6">
+    <h3>*ngFor</h3>
+    <hr>
+    <ul class="list-group">
+      <li class="list-group-item"
+      *ngFor="let personaje of personajes; let num = index">
+        {{num + 1}}. - {{personaje}}
+      </li>
+    </ul>
+  </div>
+</div>
