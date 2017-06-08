@@ -1,0 +1,31 @@
+<div class="animated fadeIn fast">
+  <h1>Search <small>{{text}}</small></h1>
+  <hr>
+
+  <div class="row" class="animated fadeInLeft fast" *ngIf="heroes.length == 0">
+    <div class="col-md-12">
+      <div class="alert alert-info" role="alert">
+        <strong>Heads up!</strong> This <a href="#" class="alert-link">alert needs your attention</a>, but it's not super important.
+      </div>
+    </div>
+  </div>
+
+  <div class="card-columns">
+
+    <div class="card" *ngFor="let heroe of heroes; let id = index">
+      <img class="card-img-top img-fluid" [src]="heroe.img" [alt]="heroe.nombre">
+      <div class="card-block">
+        <h4 class="card-title">{{heroe.nombre}}</h4>
+        <p class="card-text">{{heroe.bio}}</p>
+        <p class="card-text"><small class="text-muted">{{heroe.aparicion}}</small></p>
+
+        <a class="btn btn-block btn-primary"
+          [routerLink]="['/heroe', id]">
+          See more!
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+</div>
