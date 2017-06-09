@@ -5,8 +5,6 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class SpotifyService {
 
-  artistas:any[] = [];
-
   urlBusqueda:string = "https://api.spotify.com/v1/search";
   urlArtista:string = "https://api.spotify.com/v1/artists";
 
@@ -24,9 +22,7 @@ export class SpotifyService {
     return this._http.get( url, {headers} )
             .map( res => {
               // console.log(res.json());
-              this.artistas = res.json().artists.items;
-              console.log(this.artistas);
-              // return this.artistas;
+              return res.json().artists.items;
             });
   }
 
