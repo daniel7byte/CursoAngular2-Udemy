@@ -1,0 +1,16 @@
+<div class="container main-container">
+  <div class="row">
+    <div class="col-md-3">
+      <h1>{{termino}}</h1>
+      <label for="termino">Search artist</label>
+      <input type="text" name="termino" class="form-control"
+      [(ngModel)]="termino" (keyup)="buscarArtista()">
+    </div>
+
+    <div class="col-md-9">
+      <ul>
+        <li *ngFor="let artista of _spotifyService.artistas">{{artista.name}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
