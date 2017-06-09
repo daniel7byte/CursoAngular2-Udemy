@@ -10,13 +10,15 @@ export class SpotifyService {
 
   artistas:any[] = [];
 
+  token:string = "BQAtMqx09y9X3yGaR5pv2t4ZQpxrzGBoz49eVUaIzGet0qPNZmsxj4RrHhICPa_dSooRxEtro9MnnnneT_Gtlg";
+
   constructor( private _http:Http ) { }
 
   getArtistas( termino:string ) {
 
     // Be careful!
     let headers = new Headers();
-    headers.append( 'authorization' , 'Bearer BQD2PCw6cIq-MoGfN08xDAyDaTfJNNQNzDU-bw2PG8AalyQhVZMB836LYwPcF6pTz988nl6KK_Fcb1fg6ydcaw');
+    headers.append( 'authorization' , 'Bearer ' + this.token);
 
     let query = `?q=${termino}&type=artist`;
     let url = this.urlBusqueda + query;
@@ -31,7 +33,7 @@ export class SpotifyService {
 
     // Be careful!
     let headers = new Headers();
-    headers.append( 'authorization' , 'Bearer BQD2PCw6cIq-MoGfN08xDAyDaTfJNNQNzDU-bw2PG8AalyQhVZMB836LYwPcF6pTz988nl6KK_Fcb1fg6ydcaw');
+    headers.append( 'authorization' , 'Bearer ' + this.token);
 
     let query = `/${id}`;
     let url = this.urlArtista + query;
@@ -47,7 +49,7 @@ export class SpotifyService {
 
     // Be careful!
     let headers = new Headers();
-    headers.append( 'authorization' , 'Bearer BQD2PCw6cIq-MoGfN08xDAyDaTfJNNQNzDU-bw2PG8AalyQhVZMB836LYwPcF6pTz988nl6KK_Fcb1fg6ydcaw');
+    headers.append( 'authorization' , 'Bearer ' + this.token);
 
     let query = `/${id}/top-tracks?country=CO`;
     let url = this.urlArtista + query;
