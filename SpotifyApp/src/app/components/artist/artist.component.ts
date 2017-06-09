@@ -10,6 +10,7 @@ import { SpotifyService } from '../../services/spotify.service';
 export class ArtistComponent implements OnInit {
 
   artista:any;
+  pistas:any[];
 
   constructor( private activatedRoute:ActivatedRoute,
                private _spotifyService:SpotifyService ) { }
@@ -23,7 +24,7 @@ export class ArtistComponent implements OnInit {
           .subscribe( data => { this.artista = data; });
 
       this._spotifyService.getTop(id)
-          .subscribe( data => { this.artista = data; });
+          .subscribe( data => { this.pistas = data; });
 
     });
   }

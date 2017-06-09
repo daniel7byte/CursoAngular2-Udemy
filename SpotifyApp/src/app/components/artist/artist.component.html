@@ -1,3 +1,28 @@
-<div class="animated fadeIn fast">
-  <pre>{{artista | json}}</pre>
+<div class="animated fadeInLeft fast" *ngIf="artista">
+  <div class="container main-container">
+    <div class="row">
+
+      <div class="col-md-3 text-center">
+
+        <img class="img-thumbnail img-fluid img-circle" [src]="artista.images | sinfoto" [alt]="artista.name">
+        <br><br>
+      </div>
+
+      <div class="col-md-9">
+        <h3>{{artista.name}} <small>Popularidad: {{artista.popularity}}</small></h3>
+        <hr>
+
+        <a [href]="artista.external_urls?.spotify"
+        class="btn btn-outline-success">
+          Ver pagina!
+        </a>
+        <a [routerLink]="['/search']"
+        class="btn btn-outline-danger">
+          Atras!
+        </a>
+
+      </div>
+
+    </div>
+  </div>
 </div>

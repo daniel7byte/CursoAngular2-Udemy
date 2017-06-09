@@ -8,21 +8,22 @@ export class SpotifyService {
   urlBusqueda:string = "https://api.spotify.com/v1/search";
   urlArtista:string = "https://api.spotify.com/v1/artists";
 
+  artistas:any[] = [];
+
   constructor( private _http:Http ) { }
 
   getArtistas( termino:string ) {
 
     // Be careful!
     let headers = new Headers();
-    headers.append( 'authorization' , 'Bearer BQBblUcW_pqr6bwVAx5Eyb3SquuhoPkYBNEkzzswT9bu2dbxgKwgn7CLyVSqBbhYUpGeea-C_FyK924oPjBqUQ');
+    headers.append( 'authorization' , 'Bearer BQD2PCw6cIq-MoGfN08xDAyDaTfJNNQNzDU-bw2PG8AalyQhVZMB836LYwPcF6pTz988nl6KK_Fcb1fg6ydcaw');
 
     let query = `?q=${termino}&type=artist`;
     let url = this.urlBusqueda + query;
 
     return this._http.get( url, {headers} )
             .map( res => {
-              // console.log(res.json());
-              return res.json().artists.items;
+              this.artistas = res.json().artists.items;
             });
   }
 
@@ -30,7 +31,7 @@ export class SpotifyService {
 
     // Be careful!
     let headers = new Headers();
-    headers.append( 'authorization' , 'Bearer BQBblUcW_pqr6bwVAx5Eyb3SquuhoPkYBNEkzzswT9bu2dbxgKwgn7CLyVSqBbhYUpGeea-C_FyK924oPjBqUQ');
+    headers.append( 'authorization' , 'Bearer BQD2PCw6cIq-MoGfN08xDAyDaTfJNNQNzDU-bw2PG8AalyQhVZMB836LYwPcF6pTz988nl6KK_Fcb1fg6ydcaw');
 
     let query = `/${id}`;
     let url = this.urlArtista + query;
@@ -46,15 +47,15 @@ export class SpotifyService {
 
     // Be careful!
     let headers = new Headers();
-    headers.append( 'authorization' , 'Bearer BQBblUcW_pqr6bwVAx5Eyb3SquuhoPkYBNEkzzswT9bu2dbxgKwgn7CLyVSqBbhYUpGeea-C_FyK924oPjBqUQ');
+    headers.append( 'authorization' , 'Bearer BQD2PCw6cIq-MoGfN08xDAyDaTfJNNQNzDU-bw2PG8AalyQhVZMB836LYwPcF6pTz988nl6KK_Fcb1fg6ydcaw');
 
     let query = `/${id}/top-tracks?country=CO`;
     let url = this.urlArtista + query;
 
     return this._http.get( url, {headers} )
             .map( res => {
-              console.log(res.json());
-              return res.json();
+              // console.log(res.json().tracks);
+              return res.json().tracks;
             });
   }
 }

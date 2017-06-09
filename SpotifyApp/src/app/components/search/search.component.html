@@ -11,7 +11,7 @@
       <div class="col-md-9">
         <div class="row">
           <div class="col-md-3 text-center animated fadeInRight fast puntero"
-            *ngFor="let artista of artistas"
+            *ngFor="let artista of _spotifyService.artistas"
             [routerLink]="['/artist', artista.id]">
             <img [src]="artista.images | sinfoto" class="img-fluid img-thumbnail">
             <p>
