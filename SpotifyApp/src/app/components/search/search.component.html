@@ -1,16 +1,25 @@
-<div class="container main-container">
-  <div class="row">
-    <div class="col-md-3">
-      <h1>{{termino}}</h1>
-      <label for="termino">Search artist</label>
-      <input type="text" name="termino" class="form-control"
-      [(ngModel)]="termino" (keyup)="buscarArtista()">
-    </div>
+<div class="animated fadeIn fast">
+  <div class="container main-container">
+    <div class="row">
+      <div class="col-md-3">
+        <h1>{{termino}}</h1>
+        <label for="termino">Search artist</label>
+        <input type="text" name="termino" class="form-control"
+        [(ngModel)]="termino" (keyup)="buscarArtista()">
+      </div>
 
-    <div class="col-md-9">
-      <ul>
-        <li *ngFor="let artista of _spotifyService.artistas">{{artista.name}}</li>
-      </ul>
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-md-3 text-center animated fadeInRight fast puntero"
+            *ngFor="let artista of _spotifyService.artistas"
+            [routerLink]="['/artist', artista.id]">
+            <img [src]="artista.images | sinfoto" class="img-fluid img-thumbnail">
+            <p>
+              {{artista.name}}
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
