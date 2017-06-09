@@ -9,6 +9,8 @@ export class AppComponent {
 
   nombre = "Jose Daniel";
 
+  miNombre = "joSe dAnIel";
+
   arreglo = [1, 2 ,3 ,4 , 5, 6, 7, 8, 9, 10];
 
   PI = Math.PI ;
@@ -33,4 +35,7 @@ export class AppComponent {
 
   fecha = new Date;
 
+  idVideo = '6ACl8s_tBzE';
+
+  activar:boolean = true;
 }
