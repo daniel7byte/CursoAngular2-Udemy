@@ -21,7 +21,8 @@ export class SpotifyService {
     let query = `?q=${termino}&type=artist`;
     let url = this.urlBusqueda + query;
 
-    return this._http.get( url, {headers} ).map( res => {
+    return this._http.get( url, {headers} )
+            .map( res => {
               // console.log(res.json());
               this.artistas = res.json().artists.items;
               console.log(this.artistas);
@@ -38,12 +39,26 @@ export class SpotifyService {
     let query = `/${id}`;
     let url = this.urlArtista + query;
 
-    return this._http.get( url, {headers} ).map( res => {
+    return this._http.get( url, {headers} )
+            .map( res => {
               // console.log(res.json());
               return res.json();
-              // this.artistas = res.json().artists.items;
-              // console.log(this.artistas);
-              // return this.artistas;
+            });
+  }
+
+  getTop( id:string ) {
+
+    // Be careful!
+    let headers = new Headers();
+    headers.append( 'authorization' , 'Bearer BQBblUcW_pqr6bwVAx5Eyb3SquuhoPkYBNEkzzswT9bu2dbxgKwgn7CLyVSqBbhYUpGeea-C_FyK924oPjBqUQ');
+
+    let query = `/${id}/top-tracks?country=CO`;
+    let url = this.urlArtista + query;
+
+    return this._http.get( url, {headers} )
+            .map( res => {
+              console.log(res.json());
+              return res.json();
             });
   }
 }
